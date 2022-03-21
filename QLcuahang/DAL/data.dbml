@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_BANMAYLANH" Class="dataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-DSO8J3OR\SQLEXPRESS;Initial Catalog=QL_BANMAYLANH;Persist Security Info=True;User ID=sa" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="QL_BANMAYLANHConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.LoaiNV" Member="LoaiNVs">
+    <Type Name="LoaiNV">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenLoaiNV" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="LoaiNV_PhanQuyen" Member="PhanQuyens" ThisKey="Id" OtherKey="IdLoaiNV" Type="PhanQuyen" />
+      <Association Name="LoaiNV_NhanVien" Member="NhanViens" ThisKey="Id" OtherKey="IdLoaiNV" Type="NhanVien" />
+      <Association Name="LoaiNV_NguoiDung" Member="NguoiDungs" ThisKey="Id" OtherKey="IdLoaiNV" Type="NguoiDung" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhanQuyen" Member="PhanQuyens">
+    <Type Name="PhanQuyen">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdLoaiNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdManHinh" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CoQuyen" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="LoaiNV_PhanQuyen" Member="LoaiNV" ThisKey="IdLoaiNV" OtherKey="Id" Type="LoaiNV" IsForeignKey="true" />
+      <Association Name="ManHinh_PhanQuyen" Member="ManHinh" ThisKey="IdManHinh" OtherKey="Id" Type="ManHinh" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhanVien" Member="NhanViens">
+    <Type Name="NhanVien">
+      <Column Name="IdNV" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenNV" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TenDN" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MatKhau" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="SDTNV" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="IdLoaiNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="NhanVien_NguoiDung" Member="NguoiDungs" ThisKey="IdNV" OtherKey="IdNV" Type="NguoiDung" />
+      <Association Name="LoaiNV_NhanVien" Member="LoaiNV" ThisKey="IdLoaiNV" OtherKey="Id" Type="LoaiNV" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NguoiDung" Member="NguoiDungs">
+    <Type Name="NguoiDung">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdLoaiNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ghichu" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="LoaiNV_NguoiDung" Member="LoaiNV" ThisKey="IdLoaiNV" OtherKey="Id" Type="LoaiNV" IsForeignKey="true" />
+      <Association Name="NhanVien_NguoiDung" Member="NhanVien" ThisKey="IdNV" OtherKey="IdNV" Type="NhanVien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ManHinh" Member="ManHinhs">
+    <Type Name="ManHinh">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenMH" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="ManHinh_PhanQuyen" Member="PhanQuyens" ThisKey="Id" OtherKey="IdManHinh" Type="PhanQuyen" />
+    </Type>
+  </Table>
+</Database>

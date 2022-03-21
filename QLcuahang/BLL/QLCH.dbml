@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_BANMAYLANH" Class="QLCHDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-DSO8J3OR\SQLEXPRESS;Initial Catalog=QL_BANMAYLANH;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="BLL.Properties.Settings" SettingsPropertyName="QL_BANMAYLANHConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CT_HoaDonBan" Member="CT_HoaDonBans">
+    <Type Name="CT_HoaDonBan">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdML" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdHDB" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SoLuongBan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DonGiaBan" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="thanhtien" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="HoaDonBan_CT_HoaDonBan" Member="HoaDonBan" ThisKey="IdHDB" OtherKey="Id" Type="HoaDonBan" IsForeignKey="true" />
+      <Association Name="MayLanh_CT_HoaDonBan" Member="MayLanh" ThisKey="IdML" OtherKey="Id" Type="MayLanh" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CT_HoaDonNhap" Member="CT_HoaDonNhaps">
+    <Type Name="CT_HoaDonNhap">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdML" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdHDN" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SoLuongNhap" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DonGiaNhap" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="thanhtien" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="HoaDonNhap_CT_HoaDonNhap" Member="HoaDonNhap" ThisKey="IdHDN" OtherKey="Id" Type="HoaDonNhap" IsForeignKey="true" />
+      <Association Name="MayLanh_CT_HoaDonNhap" Member="MayLanh" ThisKey="IdML" OtherKey="Id" Type="MayLanh" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HoaDonBan" Member="HoaDonBans">
+    <Type Name="HoaDonBan">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdKH" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NgayBan" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="NgayGiao" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TongTien" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="HoaDonBan_CT_HoaDonBan" Member="CT_HoaDonBans" ThisKey="Id" OtherKey="IdHDB" Type="CT_HoaDonBan" />
+      <Association Name="KhachHang_HoaDonBan" Member="KhachHang" ThisKey="IdKH" OtherKey="Id" Type="KhachHang" IsForeignKey="true" />
+      <Association Name="NhanVien_HoaDonBan" Member="NhanVien" ThisKey="IdNV" OtherKey="Id" Type="NhanVien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HoaDonNhap" Member="HoaDonNhaps">
+    <Type Name="HoaDonNhap">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdNCC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NgayNhap" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TongTien" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="HoaDonNhap_CT_HoaDonNhap" Member="CT_HoaDonNhaps" ThisKey="Id" OtherKey="IdHDN" Type="CT_HoaDonNhap" />
+      <Association Name="NhaCungCap_HoaDonNhap" Member="NhaCungCap" ThisKey="IdNCC" OtherKey="Id" Type="NhaCungCap" IsForeignKey="true" />
+      <Association Name="NhanVien_HoaDonNhap" Member="NhanVien" ThisKey="IdNV" OtherKey="Id" Type="NhanVien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KhachHang" Member="KhachHangs">
+    <Type Name="KhachHang">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenKH" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DiaChiKH" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="KhachHang_HoaDonBan" Member="HoaDonBans" ThisKey="Id" OtherKey="IdKH" Type="HoaDonBan" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoaiNV" Member="LoaiNVs">
+    <Type Name="LoaiNV">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenLoaiNV" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="LoaiNV_NhanVien" Member="NhanViens" ThisKey="Id" OtherKey="IdLoaiNV" Type="NhanVien" />
+      <Association Name="LoaiNV_PhanQuyen" Member="PhanQuyens" ThisKey="Id" OtherKey="IdLoaiNV" Type="PhanQuyen" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ManHinh" Member="ManHinhs">
+    <Type Name="ManHinh">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenMH" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="ManHinh_PhanQuyen" Member="PhanQuyens" ThisKey="Id" OtherKey="IdManHinh" Type="PhanQuyen" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MayLanh" Member="MayLanhs">
+    <Type Name="MayLanh">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdNCC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenML" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CongSuat" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NamSX" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TinhNang" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CongNghe" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SoLuongTon" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DonGiaNhap" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DonGiaBan" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="MayLanh_CT_HoaDonBan" Member="CT_HoaDonBans" ThisKey="Id" OtherKey="IdML" Type="CT_HoaDonBan" />
+      <Association Name="MayLanh_CT_HoaDonNhap" Member="CT_HoaDonNhaps" ThisKey="Id" OtherKey="IdML" Type="CT_HoaDonNhap" />
+      <Association Name="NhaCungCap_MayLanh" Member="NhaCungCap" ThisKey="IdNCC" OtherKey="Id" Type="NhaCungCap" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhaCungCap" Member="NhaCungCaps">
+    <Type Name="NhaCungCap">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenNCC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SDTNCC" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Association Name="NhaCungCap_HoaDonNhap" Member="HoaDonNhaps" ThisKey="Id" OtherKey="IdNCC" Type="HoaDonNhap" />
+      <Association Name="NhaCungCap_MayLanh" Member="MayLanhs" ThisKey="Id" OtherKey="IdNCC" Type="MayLanh" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhanVien" Member="NhanViens">
+    <Type Name="NhanVien">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenNV" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TenDN" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MatKhau" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="SDTNV" Type="System.String" DbType="VarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="IdLoaiNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="NhanVien_HoaDonBan" Member="HoaDonBans" ThisKey="Id" OtherKey="IdNV" Type="HoaDonBan" />
+      <Association Name="NhanVien_HoaDonNhap" Member="HoaDonNhaps" ThisKey="Id" OtherKey="IdNV" Type="HoaDonNhap" />
+      <Association Name="LoaiNV_NhanVien" Member="LoaiNV" ThisKey="IdLoaiNV" OtherKey="Id" Type="LoaiNV" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhanQuyen" Member="PhanQuyens">
+    <Type Name="PhanQuyen">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdLoaiNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdManHinh" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CoQuyen" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="LoaiNV_PhanQuyen" Member="LoaiNV" ThisKey="IdLoaiNV" OtherKey="Id" Type="LoaiNV" IsForeignKey="true" />
+      <Association Name="ManHinh_PhanQuyen" Member="ManHinh" ThisKey="IdManHinh" OtherKey="Id" Type="ManHinh" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

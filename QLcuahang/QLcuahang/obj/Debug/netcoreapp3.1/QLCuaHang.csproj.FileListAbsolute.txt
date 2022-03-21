@@ -1,0 +1,15 @@
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\bin\Debug\netcoreapp3.1\QLCuaHang.exe
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\bin\Debug\netcoreapp3.1\QLCuaHang.deps.json
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\bin\Debug\netcoreapp3.1\QLCuaHang.runtimeconfig.json
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\bin\Debug\netcoreapp3.1\QLCuaHang.runtimeconfig.dev.json
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\bin\Debug\netcoreapp3.1\QLCuaHang.dll
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\bin\Debug\netcoreapp3.1\QLCuaHang.pdb
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\obj\Debug\netcoreapp3.1\QLCuaHang.csprojAssemblyReference.cache
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\obj\Debug\netcoreapp3.1\QLCuaHang.Form1.resources
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\obj\Debug\netcoreapp3.1\QLCuaHang.csproj.GenerateResource.cache
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\obj\Debug\netcoreapp3.1\QLCuaHang.AssemblyInfoInputs.cache
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\obj\Debug\netcoreapp3.1\QLCuaHang.AssemblyInfo.cs
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\obj\Debug\netcoreapp3.1\QLCuaHang.csproj.CoreCompileInputs.cache
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\obj\Debug\netcoreapp3.1\QLCuaHang.dll
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\obj\Debug\netcoreapp3.1\QLCuaHang.pdb
+C:\Users\vhta1\Documents\GitHub\Project\QLcuahang\QLCuaHang\obj\Debug\netcoreapp3.1\QLCuaHang.genruntimeconfig.cache
