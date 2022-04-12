@@ -25,7 +25,7 @@ namespace BLL
                         deleteCT_HDB(ct.Id);
                     }
                 }
-                return true;
+                return false;
             }
             catch { return false; }
         }
